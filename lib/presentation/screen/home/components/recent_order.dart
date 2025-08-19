@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../utils/constraints.dart';
+import '../../../../utils/k_images.dart';
+import '../../../../utils/utils.dart';
+import '../../../../widget/title_and_navigator.dart';
+import '../../../core/routes/route_names.dart';
+import '../../my_order/components/order_card.dart';
+
+class RecentOrder extends StatelessWidget {
+  const RecentOrder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TitleAndNavigator(
+          title: 'Recent Order',
+          seeAllColors: subTitleTextColor,
+          press: () {
+          },
+        ),
+        Utils.verticalSpace(16),
+        SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: Column(
+            children: [
+              ...List.generate(5, (index) {
+                // final service = DummyData.influencerList[index];
+                return const Padding(
+                  padding: EdgeInsets.only(
+                    bottom: 16.0,
+                  ),
+                  child: OrderCart(),
+                );
+              })
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+
